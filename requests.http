@@ -1,1 +1,35 @@
+### Obtener todos los libros
 GET http://localhost:3000/libros HTTP/1.1
+
+### Obtener un libro por ISBN
+GET http://localhost:3000/libros/9780241340257 HTTP/1.1
+
+### Agregar un nuevo libro
+POST http://localhost:3000/libros
+Content-Type: application/json
+
+{
+  "ISBN": 9780241340257,
+  "Titulo": "Nuevo Libro",
+  "Autor": "Autor Desconocido",
+  "Ilustrador_Otros": null,
+  "Publicacion_Año": "2025",
+  "Tipo": "Ficción",
+  "Genero": "Aventura",
+  "Disponibilidad": "Disponible",
+  "Usuario_ID": 3,
+  "Regalado_Comprado": "C",
+  "RegaloPor": null
+}
+
+### Actualizar un libro existente
+PUT http://localhost:3000/libros/9780241340257 HTTP/1.1
+Content-Type: application/json
+
+{
+    "Titulo": "Libro Actualizado",
+    "Disponibilidad": "Prestado"
+}
+
+### Borrar un libro existente
+DELETE http://localhost:3000/libros/9780241340257
